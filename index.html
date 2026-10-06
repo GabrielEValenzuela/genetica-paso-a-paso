@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Genética paso a paso</title>
+<meta name="description" content="Guía de estudio interactiva de genética: ciclo celular, cromosomas, Mendel, grupos sanguíneos y ejercicios resueltos paso a paso.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#inicio">🧬 Genética <span>· paso a paso</span></a>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema claro/oscuro">◐ Tema</button>
+  </div>
+  <nav class="chips" id="nav" aria-label="Secciones">
+    <a href="#inicio">Inicio</a>
+    <a href="#ciclo">1 · Ciclo celular</a>
+    <a href="#cromosoma">2 · Cromosoma y ADN</a>
+    <a href="#vocabulario">3 · Vocabulario</a>
+    <a href="#mendel">4 · Mendel</a>
+    <a href="#extension">5 · Más allá de Mendel</a>
+    <a href="#metodo">6 · El método</a>
+    <a href="#resueltos">7 · Resueltos</a>
+    <a href="#practica">8 · Práctica</a>
+    <a href="#punnett">9 · Punnett</a>
+    <a href="#simulacro">10 · Simulacro</a>
+    <a href="#repaso">11 · Repaso final</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ======================================================= INICIO -->
+<section class="page" id="inicio" tabindex="-1" data-title="Inicio">
+  <p class="eyebrow">Genética · Guía de estudio interactiva</p>
+  <h1>No vamos a leer genética: vamos a <em>pensarla</em>.</h1>
+  <p class="lead">Esta web está armada para que sepas qué hacer frente a cada pregunta de genética y, sobre todo, <b>cómo darte cuenta</b> de que lo estás haciendo bien.</p>
+
+  <div class="box key">
+    <span class="box-title">📋 Qué vas a encontrar</span>
+    <ul>
+      <li><b>Teoría narrada</b> (secciones 1 a 5): ciclo celular, cromosomas y ADN, vocabulario, Mendel y sus extensiones.</li>
+      <li><b>Un método</b> (sección 6) para resolver cualquier ejercicio sin quedarte en blanco.</li>
+      <li><b>Problemas resueltos</b> (sección 7) en los que se ve cómo piensa alguien que ya sabe resolverlos.</li>
+      <li><b>Práctica interactiva</b> (secciones 8 a 10): preguntas con corrección, un entrenador de cuadros de Punnett y un simulacro con tiempo.</li>
+    </ul>
+  </div>
+
+  <h2>Primero, ¿qué es eso de ser "metacognitivo"?</h2>
+  <p>Metacognición es una palabra larga para algo simple: <b>pensar sobre tu propio pensamiento</b>. No alcanza con saber genética: también tenés que saber <em>qué sabés</em>, <em>qué no sabés</em> y <em>cuándo te estás equivocando</em>. Quienes aprenden mejor no son quienes estudian más horas, sino quienes se hacen buenas preguntas mientras estudian.</p>
+  <p>Toda la web gira alrededor de tres momentos. Vas a verlos una y otra vez:</p>
+  <div class="two-col">
+    <div class="box think"><span class="box-title">🧭 Antes: planificar</span>¿Qué me están pidiendo? ¿Qué sé de esto? ¿Por dónde empiezo?</div>
+    <div class="box think"><span class="box-title">🔍 Durante: monitorear</span>¿Esto tiene sentido? ¿Mi resultado es compatible con los datos?</div>
+  </div>
+  <div class="box think"><span class="box-title">🪞 Después: evaluar</span>¿Lo podría explicar sin mirar? Si me equivoqué, ¿fue por no saber, por no leer bien o por apuro?</div>
+
+  <h2>Tu punto de partida: el semáforo</h2>
+  <p>Antes de estudiar, sé honesto con vos. Para cada tema, marcá cómo te sentís <b>ahora</b>. No es una evaluación: es un mapa para saber dónde poner energía. Al final vas a volver a hacerlo y vas a ver la diferencia.</p>
+  <div class="card" id="semAntes"></div>
+  <p class="small muted">🔴 no lo sé · 🟡 más o menos · 🟢 lo puedo explicar sin mirar. Todo se guarda en este navegador.</p>
+
+  <h2>Un recorrido sugerido (≈ 3 horas)</h2>
+  <ol class="plan">
+    <li><b>Semáforo</b><span class="time">5 min · lo acabás de hacer arriba</span>Si tenés muchos 🔴 en un tema, empezá por ahí.</li>
+    <li><b>Teoría: secciones 1 a 5</b><span class="time">60 min</span>Leé con lapicera. Al final de cada sección hay un "Explicalo sin mirar": hacelo <em>en voz alta</em>, aunque te dé vergüenza. Explicar es la mejor forma de detectar huecos.</li>
+    <li><b>El método (sección 6)</b><span class="time">10 min</span>La receta de 7 pasos que vas a usar en todos los ejercicios.</li>
+    <li><b>Problemas resueltos (sección 7)</b><span class="time">40 min</span>No los leas de corrido: antes de abrir cada paso, intentá adivinar qué viene. Si acertás, genial; si no, ahí está el aprendizaje.</li>
+    <li><b>Práctica + Punnett (secciones 8 y 9)</b><span class="time">30 min</span>Marcá qué tan seguro o segura te sentís antes de corregir. Eso entrena tu "radar" de errores.</li>
+    <li><b>Simulacro cronometrado (sección 10)</b><span class="time">15 min</span>6 preguntas, 15 minutos, hoja al lado.</li>
+    <li><b>Repaso final y descanso</b><span class="time">10 min</span>Descansar no es perder tiempo: mientras dormís, el cerebro consolida lo que estudiaste.</li>
+  </ol>
+
+  <div class="box goal">
+    <span class="box-title">📚 Bibliografía de referencia</span>
+    Curtis, Barnes, Schnek y Massarini, <i>Invitación a la Biología en contexto social</i> (caps. 5 y 8); Curtis, <i>Biología</i>, 9ª ed. (caps. 8 y 9); Audesirk, <i>Biología: la vida en la Tierra</i>, 7ª ed. (cap. 10). Los ejercicios son problemas clásicos de genética, explicados paso a paso.
+  </div>
+</section>
+
+<!-- ======================================================= 1 CICLO -->
+<section class="page" id="ciclo" tabindex="-1" data-title="1 · Ciclo celular">
+  <p class="eyebrow">Capítulo 1 · Curtis cap. 5 y 8</p>
+  <h1>El ciclo celular: cómo una célula se convierte en dos</h1>
+
+  <div class="box goal">
+    <span class="box-title">🎯 Al terminar vas a poder…</span>
+    <ul>
+      <li>Nombrar las etapas del ciclo celular y decir qué pasa en cada una.</li>
+      <li>Comparar mitosis y meiosis (cuadro comparativo).</li>
+      <li>Responder <b>en qué momento</b> se cumplen las leyes de Mendel, una pregunta teórica clásica.</li>
+    </ul>
+  </div>
+
+  <div class="box think">
+    <span class="box-title">🤔 Antes de leer, pensá 30 segundos</span>
+    Empezaste siendo <b>una sola célula</b>: el cigoto. Hoy tenés unos 30 billones. ¿Cómo hizo esa primera célula para que todas las demás tengan la misma información genética? Y si todas tienen la misma información, ¿cómo se forman los óvulos y espermatozoides, que tienen la <em>mitad</em>?
+  </div>
+
+  <h2>La vida de una célula, contada como una historia</h2>
+  <p>El <b>ciclo celular</b> es la vida de una célula desde que nace (por división de otra) hasta que ella misma se divide. Tiene dos grandes momentos: un período largo de "vida normal", la <b>interfase</b>, y un período corto de división, la <b>fase M</b>.</p>
+
+  <div class="fig-card two-col">
+    <figure style="margin:0">
+      <svg viewBox="0 0 220 220" role="img" aria-label="Diagrama circular del ciclo celular: G1, S, G2 y M">
+        <g transform="rotate(-90 110 110)" fill="none" stroke-width="34">
+          <circle cx="110" cy="110" r="80" stroke="var(--accent)" stroke-dasharray="199 503" stroke-dashoffset="0"/>
+          <circle cx="110" cy="110" r="80" stroke="var(--think)" stroke-dasharray="149 503" stroke-dashoffset="-201"/>
+          <circle cx="110" cy="110" r="80" stroke="var(--key)" stroke-dasharray="89 503" stroke-dashoffset="-352"/>
+          <circle cx="110" cy="110" r="80" stroke="var(--mat)" stroke-dasharray="58 503" stroke-dashoffset="-443"/>
+        </g>
+        <text x="186" y="90" text-anchor="middle" class="on-chr">G1</text>
+        <text x="85" y="190" text-anchor="middle" class="on-chr">S</text>
+        <text x="33" y="94" text-anchor="middle" class="on-chr">G2</text>
+        <text x="81" y="40" text-anchor="middle" class="on-chr">M</text>
+        <text x="110" y="106" text-anchor="middle" class="lbl-b">Ciclo</text>
+        <text x="110" y="124" text-anchor="middle" class="lbl-b">celular</text>
+      </svg>
+      <figcaption>Interfase = G1 + S + G2 (≈ 90% del tiempo). M = división.</figcaption>
+    </figure>
+    <dl class="cycle-legend">
+      <dt style="color:var(--accent)">G1: crecer y trabajar</dt>
+      <dd>La célula crece, fabrica proteínas y cumple su función. Al final hay un "control": ¿me divido o no? Si no, sale del ciclo hacia <b>G0</b> (como la mayoría de las neuronas maduras).</dd>
+      <dt style="color:var(--think)">S: copiar el ADN</dt>
+      <dd>S = <b>síntesis</b>. Se <b>replica el ADN</b>: cada cromosoma pasa de tener 1 cromátida a tener <b>2 cromátidas hermanas</b> idénticas.</dd>
+      <dt style="color:var(--key)">G2: revisar y prepararse</dt>
+      <dd>Sigue creciendo, revisa errores en la copia y se prepara para dividirse.</dd>
+      <dt style="color:var(--mat)">M: dividirse</dt>
+      <dd>Mitosis (o meiosis) para repartir los cromosomas, y <b>citocinesis</b> para partir el citoplasma en dos.</dd>
+    </dl>
+  </div>
+
+  <div class="box trap">
+    <span class="box-title">⚠️ Trampa clásica</span>
+    "El ADN se copia durante la mitosis." <b>Falso.</b> Se copia en la fase <b>S</b> de la interfase. Cuando la célula entra en mitosis, ya tiene todo duplicado y lo único que hace es <em>repartirlo</em>.
+  </div>
+
+  <h2>Mitosis: la fotocopiadora</h2>
+  <p>La mitosis existe para que una célula del cuerpo (célula <b>somática</b>) dé dos células <b>idénticas</b> a ella. Así crecés, cicatrizás una herida o renovás la piel. Ocurre en cuatro fases. Una forma de recordarlas es <b>"PROMETE ANA a TELO"</b>:</p>
+  <ol>
+    <li><b>Profase:</b> el ADN se condensa y los cromosomas se vuelven visibles (cada uno con sus 2 cromátidas). Se forma el huso y se desarma la envoltura del núcleo.</li>
+    <li><b>Metafase:</b> los cromosomas se alinean en el centro de la célula (la placa ecuatorial), "en fila india".</li>
+    <li><b>Anafase:</b> se separan las <b>cromátidas hermanas</b> y cada una viaja a un polo.</li>
+    <li><b>Telofase:</b> se rearman dos núcleos y los cromosomas se descondensan. Después, la citocinesis termina de separar las dos células.</li>
+  </ol>
+  <p>Resultado: <b>2 células diploides (2n = 46), idénticas entre sí e idénticas a la madre.</b></p>
+
+  <h2>Meiosis: la que fabrica gametos (y diversidad)</h2>
+  <p>Ahora el problema es otro. Si un óvulo con 46 cromosomas se uniera a un espermatozoide con 46, el bebé tendría 92. Y su hijo, 184. Imposible. La solución de la naturaleza es la <b>meiosis</b>: una división especial que <b>reduce a la mitad</b> el número de cromosomas. Ocurre solo en las células de la <b>línea germinal</b>, dentro de ovarios y testículos.</p>
+  <p>La meiosis tiene <b>una sola copia del ADN y dos divisiones seguidas</b>:</p>
+  <ul>
+    <li><b>Meiosis I (reduccional):</b> los cromosomas <b>homólogos</b> (el que viene de mamá y el que viene de papá) se juntan en pares. En la <b>profase I</b> intercambian pedacitos: es el <b>crossing-over</b> o entrecruzamiento. En la <b>metafase I</b> los pares se alinean en el ecuador, cada uno orientado <b>al azar</b>. En la <b>anafase I</b> se separan los <b>homólogos</b>. Quedan 2 células con n = 23 (cada cromosoma todavía con 2 cromátidas).</li>
+    <li><b>Meiosis II (como una mitosis):</b> en cada una de esas células se separan las <b>cromátidas hermanas</b>. Resultado: <b>4 células haploides (n = 23), todas genéticamente distintas.</b></li>
+  </ul>
+
+  <figure class="fig-card">
+    <svg viewBox="0 0 340 520" role="img" aria-label="Esquema de meiosis: una célula 2n con un par de homólogos duplicados se divide en dos células en meiosis I separando homólogos, y luego en cuatro gametos en meiosis II separando cromátidas">
+      <defs>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+      <!-- Fila 1 -->
+      <circle class="cell" cx="170" cy="70" r="56"/>
+      <rect class="mat" x="138" y="48" width="9" height="46" rx="4.5"/><rect class="mat" x="149" y="48" width="9" height="46" rx="4.5"/>
+      <rect class="pat" x="182" y="48" width="9" height="46" rx="4.5"/><rect class="pat" x="193" y="48" width="9" height="46" rx="4.5"/>
+      <text x="148" y="110" text-anchor="middle" class="lbl-b">D</text><text x="192" y="110" text-anchor="middle" class="lbl-b">d</text>
+      <text x="170" y="12" text-anchor="middle" class="lbl-s">Célula 2n con el ADN ya duplicado (fase S)</text>
+      <!-- flechas 1→2 -->
+      <line class="arrow" x1="132" y1="118" x2="100" y2="200"/>
+      <line class="arrow" x1="208" y1="118" x2="240" y2="200"/>
+      <text x="170" y="158" text-anchor="middle" class="lbl-b">Meiosis I</text>
+      <text x="170" y="176" text-anchor="middle" class="lbl-s">separa homólogos</text>
+      <!-- Fila 2 -->
+      <circle class="cell" cx="85" cy="250" r="46"/>
+      <rect class="mat" x="74" y="228" width="9" height="44" rx="4.5"/><rect class="mat" x="85" y="228" width="9" height="44" rx="4.5"/>
+      <text x="85" y="290" text-anchor="middle" class="lbl-b">D D</text>
+      <circle class="cell" cx="255" cy="250" r="46"/>
+      <rect class="pat" x="244" y="228" width="9" height="44" rx="4.5"/><rect class="pat" x="255" y="228" width="9" height="44" rx="4.5"/>
+      <text x="255" y="290" text-anchor="middle" class="lbl-b">d d</text>
+      <!-- flechas 2→3 -->
+      <line class="arrow" x1="72" y1="298" x2="50" y2="394"/>
+      <line class="arrow" x1="98" y1="298" x2="118" y2="394"/>
+      <line class="arrow" x1="242" y1="298" x2="222" y2="394"/>
+      <line class="arrow" x1="268" y1="298" x2="290" y2="394"/>
+      <text x="170" y="342" text-anchor="middle" class="lbl-b">Meiosis II</text>
+      <text x="170" y="360" text-anchor="middle" class="lbl-s">separa cromátidas</text>
+      <!-- Fila 3 -->
+      <circle class="cell" cx="45" cy="432" r="32"/><rect class="mat" x="41" y="414" width="9" height="30" rx="4.5"/><text x="45" y="458" text-anchor="middle" class="lbl-b">D</text>
+      <circle class="cell" cx="125" cy="432" r="32"/><rect class="mat" x="121" y="414" width="9" height="30" rx="4.5"/><text x="125" y="458" text-anchor="middle" class="lbl-b">D</text>
+      <circle class="cell" cx="215" cy="432" r="32"/><rect class="pat" x="211" y="414" width="9" height="30" rx="4.5"/><text x="215" y="458" text-anchor="middle" class="lbl-b">d</text>
+      <circle class="cell" cx="295" cy="432" r="32"/><rect class="pat" x="291" y="414" width="9" height="30" rx="4.5"/><text x="295" y="458" text-anchor="middle" class="lbl-b">d</text>
+      <text x="170" y="496" text-anchor="middle" class="lbl">4 gametos haploides (n): la mitad lleva D</text>
+      <text x="170" y="514" text-anchor="middle" class="lbl">y la otra mitad lleva d → <tspan font-weight="700">1ª ley de Mendel</tspan></text>
+    </svg>
+    <figcaption>Para simplificar se muestra un solo par de homólogos: <span style="color:var(--mat)">■ el que vino de mamá</span> y <span style="color:var(--pat)">■ el que vino de papá</span>.</figcaption>
+  </figure>
+
+  <h3>El cuadro comparativo</h3>
+  <div class="table-wrap">
+    <table class="t">
+      <thead><tr><th>Característica</th><th>Mitosis</th><th>Meiosis</th></tr></thead>
+      <tbody>
+        <tr><td>Células en que ocurre</td><td>Somáticas (del cuerpo)</td><td>Germinales (en gónadas: ovarios y testículos)</td></tr>
+        <tr><td>Nº de divisiones</td><td>1</td><td>2 (meiosis I y II)</td></tr>
+        <tr><td>Nº de células resultantes</td><td>2</td><td>4</td></tr>
+        <tr><td>Nº cromosómico resultante</td><td>Diploide, 2n = 46 (igual a la madre)</td><td>Haploide, n = 23 (la mitad)</td></tr>
+        <tr><td>¿Hijas iguales?</td><td>Sí, idénticas</td><td>No, todas distintas (crossing-over + azar)</td></tr>
+        <tr><td>Apareamiento de homólogos</td><td>No</td><td>Sí, en la profase I</td></tr>
+        <tr><td>Funciones</td><td>Crecimiento, reparación y renovación de tejidos</td><td>Formar gametos, mantener constante el nº de cromosomas de la especie y generar variabilidad</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>El puente con Mendel</h2>
+  <p>Acá se conecta todo. Mendel no sabía nada de cromosomas, pero sus "leyes" son en realidad una descripción de lo que pasa en la meiosis:</p>
+  <div class="box key">
+    <span class="box-title">🔑 Respuestas listas para usar</span>
+    <p><b>¿En qué células y en qué momento se cumple la 1ª ley (segregación)?</b><br>En las <b>células germinales</b> (de la línea germinal, en las gónadas), durante la <b>meiosis</b>. Concretamente en la <b>anafase I</b>, cuando se separan los cromosomas homólogos: como cada alelo está en uno de los homólogos, los dos alelos se separan y cada gameto recibe uno solo.</p>
+    <p><b>¿Durante qué proceso se cumple la 2ª ley (distribución independiente)?</b><br>Durante la <b>meiosis</b>, en la <b>metafase I / anafase I</b>: cada par de homólogos se orienta en el ecuador <b>al azar e independientemente</b> de los otros pares. Por eso los genes ubicados en cromosomas distintos se reparten de manera independiente.</p>
+  </div>
+  <p class="small muted">Dato fino, para quien quiera ir más allá: si hubo crossing-over justo entre el gen y el centrómero, los alelos pueden terminar separándose recién en la anafase II. Como respuesta general, "anafase I" es lo esperado.</p>
+
+  <h3>Los números del ciclo vital humano</h3>
+  <p>Células del cuerpo: <b>2n = 46</b> → meiosis → gametos <b>n = 23</b> → fecundación (23 + 23) → cigoto <b>2n = 46</b> → mitosis, mitosis, mitosis… → bebé. Meiosis y fecundación son dos caras de la misma moneda: una divide por dos y la otra multiplica por dos.</p>
+
+  <details class="check">
+    <summary>✍️ Explicalo sin mirar (en voz alta), después abrí</summary>
+    <ol>
+      <li>¿Qué pasa en la fase S y por qué es importante?<span class="ans">Se replica el ADN: cada cromosoma queda con 2 cromátidas hermanas. Sin eso, no habría qué repartir en la división.</span></li>
+      <li>Decí tres diferencias entre mitosis y meiosis.<span class="ans">Células somáticas vs germinales; 2 vs 4 células; 2n vs n; idénticas vs distintas; 1 vs 2 divisiones.</span></li>
+      <li>¿En qué momento exacto se separan los alelos D y d?<span class="ans">En la anafase I de la meiosis, cuando se separan los homólogos.</span></li>
+      <li>¿Qué separa la anafase de la mitosis: homólogos o cromátidas?<span class="ans">Cromátidas hermanas (igual que la anafase II de la meiosis).</span></li>
+    </ol>
+  </details>
+</section>
+
+<!-- ======================================================= 2 CROMOSOMA -->
+<section class="page" id="cromosoma" tabindex="-1" data-title="2 · Cromosoma y ADN">
+  <p class="eyebrow">Capítulo 2 · Apunte 2019 cap. 14 · Curtis 9ª cap. 9</p>
+  <h1>El cromosoma y el ADN: la biblioteca de la célula</h1>
+
+  <div class="box goal">
+    <span class="box-title">🎯 Al terminar vas a poder…</span>
+    <ul>
+      <li>Dibujar un cromosoma duplicado y señalar sus partes.</li>
+      <li>Explicar qué es el ADN, cómo se copia y cómo se "lee" para fabricar proteínas.</li>
+      <li>Reconocer las principales alteraciones cromosómicas.</li>
+    </ul>
+  </div>
+
+  <h2>Una metáfora que ordena todo</h2>
+  <p>Imaginá que el núcleo de cada célula es una <b>biblioteca</b>. Vale la pena aprendérsela, porque la vamos a usar en toda la web:</p>
+  <div class="table-wrap">
+    <table class="t">
+      <thead><tr><th>En la biblioteca…</th><th>En la célula…</th></tr></thead>
+      <tbody>
+        <tr><td>El edificio</td><td>El núcleo</td></tr>
+        <tr><td>46 tomos, en dos colecciones de 23 (una que te regaló mamá y otra papá)</td><td>46 cromosomas, en 23 pares de <b>homólogos</b></td></tr>
+        <tr><td>Una receta dentro de un tomo</td><td>Un <b>gen</b></td></tr>
+        <tr><td>La página exacta donde está esa receta</td><td>El <b>locus</b></td></tr>
+        <tr><td>Versiones de la misma receta (torta de chocolate o de vainilla)</td><td>Los <b>alelos</b></td></tr>
+        <tr><td>El alfabeto de 4 letras con que está escrito todo</td><td>Las bases del ADN: A, T, C, G</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>El ADN: el texto</h2>
+  <p>El ADN (ácido desoxirribonucleico) es una cadena larguísima de <b>nucleótidos</b>. Cada nucleótido tiene tres partes: un <b>fosfato</b>, un azúcar (<b>desoxirribosa</b>) y una <b>base nitrogenada</b>, que puede ser adenina (A), timina (T), citosina (C) o guanina (G).</p>
+  <p>Watson y Crick (1953, con datos de Rosalind Franklin) mostraron que el ADN es una <b>doble hélice</b>: dos hebras enroscadas como una escalera caracol, con las bases enfrentadas en el medio. Las bases se aparean siempre igual: <b>A con T</b> y <b>C con G</b>. Es la <b>complementariedad</b>: si conocés una hebra, podés deducir la otra.</p>
+
+  <h3>Cómo se copia: replicación semiconservativa</h3>
+  <p>En la fase S, la doble hélice se abre como un cierre relámpago (lo hace la enzima helicasa) y cada hebra sirve de <b>molde</b> para fabricar una nueva (lo hace la ADN polimerasa, respetando A–T y C–G). Al final hay dos moléculas, y cada una tiene <b>una hebra vieja y una nueva</b>. Por eso se llama <b>semiconservativa</b>: cada copia "conserva la mitad" del original.</p>
+
+  <h3>Del ADN a la proteína: el código genético</h3>
+  <p>Un <b>gen</b>, en una definición sencilla, es un <b>conjunto de bases nitrogenadas que codifican para una característica</b>. ¿Cómo pasa una secuencia de letras a convertirse en "pulgar recto"? En dos pasos:</p>
+  <ol>
+    <li><b>Transcripción</b> (en el núcleo): se copia el gen a una molécula de <b>ARN mensajero</b> (ARNm). En el ARN la T se reemplaza por <b>U</b> (uracilo).</li>
+    <li><b>Traducción</b> (en los ribosomas, en el citoplasma): el ribosoma lee el ARNm de a <b>tres letras</b>. Cada triplete es un <b>codón</b> y le corresponde un aminoácido. Los ARN de transferencia (ARNt) traen los aminoácidos y los encadenan hasta formar una <b>proteína</b>.</li>
+  </ol>
+  <p>Características del código genético: se lee en <b>tripletes</b>; hay <b>64 codones</b> para <b>20 aminoácidos</b>, así que es <b>redundante</b> (varios codones significan lo mismo); es casi <b>universal</b> (lo comparten casi todos los seres vivos); <b>AUG</b> es la señal de inicio y hay 3 codones de <b>stop</b> (UAA, UAG, UGA).</p>
+  <div class="box key"><span class="box-title">🔑 La idea en una línea</span>ADN → (transcripción) → ARNm → (traducción) → proteína → característica (fenotipo).</div>
+
+  <h2>El cromosoma: el tomo</h2>
+  <p>Si estiraras el ADN de una sola célula, mediría unos 2 metros. Para que entre en el núcleo, se enrolla alrededor de unas proteínas llamadas <b>histonas</b>, como hilo en carretel: cada "carretel" es un <b>nucleosoma</b>, y el conjunto parece un collar de perlas. Esa mezcla de ADN + proteínas se llama <b>cromatina</b>. Cuando la célula va a dividirse, la cromatina se compacta muchísimo y se vuelve visible al microscopio como <b>cromosomas</b>.</p>
+
+  <figure class="fig-card">
+    <svg viewBox="0 0 360 270" role="img" aria-label="Cromosoma duplicado con sus partes: dos cromátidas hermanas, centrómero, brazo corto p, brazo largo q, telómeros y un locus">
+      <!-- cromátidas -->
+      <rect class="neu" x="120" y="20" width="26" height="72" rx="13"/>
+      <rect class="neu" x="154" y="20" width="26" height="72" rx="13"/>
+      <rect class="neu" x="120" y="100" width="26" height="140" rx="13"/>
+      <rect class="neu" x="154" y="100" width="26" height="140" rx="13"/>
+      <!-- centrómero -->
+      <ellipse cx="150" cy="96" rx="34" ry="9" fill="var(--text)" opacity=".75"/>
+      <!-- telómeros -->
+      <rect class="tel" x="120" y="20" width="26" height="9" rx="4"/><rect class="tel" x="154" y="20" width="26" height="9" rx="4"/>
+      <rect class="tel" x="120" y="231" width="26" height="9" rx="4"/><rect class="tel" x="154" y="231" width="26" height="9" rx="4"/>
+      <!-- locus -->
+      <rect class="band" x="120" y="160" width="26" height="9"/><rect class="band" x="154" y="160" width="26" height="9"/>
+      <!-- rótulos derecha -->
+      <line class="line" x1="182" y1="24" x2="222" y2="24"/><text x="226" y="28" class="lbl">Telómero</text>
+      <line class="line" x1="182" y1="56" x2="222" y2="56"/><text x="226" y="60" class="lbl">Brazo corto (p)</text>
+      <line class="line" x1="186" y1="96" x2="222" y2="96"/><text x="226" y="100" class="lbl">Centrómero</text>
+      <line class="line" x1="182" y1="164" x2="222" y2="164"/><text x="226" y="168" class="lbl">Locus de un gen</text>
+      <line class="line" x1="182" y1="205" x2="222" y2="205"/><text x="226" y="209" class="lbl">Brazo largo (q)</text>
+      <line class="line" x1="182" y1="236" x2="222" y2="236"/><text x="226" y="240" class="lbl">Telómero</text>
+      <!-- rótulos izquierda -->
+      <text x="8" y="128" class="lbl">Cromátida</text><text x="8" y="144" class="lbl">hermana 1</text>
+      <line class="line" x1="76" y1="134" x2="118" y2="134"/>
+      <text x="236" y="262" class="lbl-s" text-anchor="middle">← ambas cromátidas son copias idénticas (fase S)</text>
+      <line class="line" x1="167" y1="242" x2="167" y2="250"/>
+      <text x="8" y="196" class="lbl">Cromátida</text><text x="8" y="212" class="lbl">hermana 2</text>
+      <path class="line" d="M76 202 C 110 202, 150 220, 166 222"/>
+    </svg>
+    <figcaption>Cromosoma <b>duplicado</b> (después de la fase S), tal como se ve en la metafase.</figcaption>
+  </figure>
+
+  <ul>
+    <li><b>Cromátidas hermanas:</b> las dos copias idénticas del ADN que se formaron en la fase S. Siguen unidas hasta la anafase.</li>
+    <li><b>Centrómero:</b> la "cintura" que une a las cromátidas. Ahí se enganchan las fibras del huso. Según su posición, el cromosoma es <i>metacéntrico</i> (al medio), <i>submetacéntrico</i> (un poco corrido) o <i>acrocéntrico</i> (casi en la punta).</li>
+    <li><b>Brazos:</b> el centrómero divide al cromosoma en un brazo corto (<b>p</b>) y un brazo largo (<b>q</b>).</li>
+    <li><b>Telómeros:</b> los extremos. Son como los plastiquitos de los cordones: protegen al cromosoma para que no se "deshilache".</li>
+  </ul>
+  <div class="box trap">
+    <span class="box-title">⚠️ ¿Cuántos cromosomas hay en el dibujo?</span>
+    <b>Uno.</b> Un cromosoma duplicado (con 2 cromátidas) sigue siendo <b>un</b> cromosoma. El truco para contar es contar <b>centrómeros</b>.
+  </div>
+
+  <h3>El cariotipo humano</h3>
+  <p>Es la foto ordenada de los cromosomas de una persona: <b>46 cromosomas = 23 pares</b>. De esos, <b>22 pares son autosomas</b> (numerados del 1 al 22, más o menos de mayor a menor) y <b>1 par es sexual</b>: XX en las mujeres y XY en los varones. Las células con pares completos son <b>diploides (2n)</b> y los gametos, con un solo juego, son <b>haploides (n)</b>.</p>
+
+  <h2>Alteraciones cromosómicas</h2>
+  <p>A veces la meiosis o la replicación fallan. Hay dos grandes familias:</p>
+  <p><b>Numéricas</b> (cambia la cantidad de cromosomas). Suelen deberse a una <i>no disyunción</i>, es decir, homólogos o cromátidas que no se separan bien en la meiosis.</p>
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Nombre</th><th>Qué es</th><th>Pista para recordar</th></tr></thead>
+    <tbody>
+      <tr><td><b>Trisomía</b></td><td>Presencia de un cromosoma <b>extra</b> en un par de homólogos (3 en lugar de 2). Ej.: síndrome de Down (trisomía 21).</td><td>tri = tres</td></tr>
+      <tr><td><b>Monosomía</b></td><td>Falta un cromosoma del par. Ej.: síndrome de Turner (X0).</td><td>mono = uno</td></tr>
+      <tr><td><b>Nulisomía</b></td><td>Ausencia de los dos cromosomas de un par. (Algunos materiales la describen como "ausencia de un cromosoma del par"; si es por descarte, va ahí.)</td><td>nuli = nada</td></tr>
+    </tbody>
+  </table></div>
+  <p><b>Estructurales</b> (cambia la forma de un cromosoma):</p>
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Nombre</th><th>Qué es</th><th>Pista para recordar</th></tr></thead>
+    <tbody>
+      <tr><td><b>Deleción</b></td><td>Pérdida de un segmento cromosómico.</td><td>como "delete"</td></tr>
+      <tr><td><b>Duplicación</b></td><td>Repetición anormal de un fragmento de ADN.</td><td>dupli = doble</td></tr>
+      <tr><td><b>Inversión</b></td><td>Un segmento rota 180° y queda al revés.</td><td>ABCDE → AD<b>CB</b>E</td></tr>
+      <tr><td><b>Translocación</b></td><td>Un fragmento se intercambia con otro cromosoma <b>no homólogo</b>.</td><td>trans = a otro lado</td></tr>
+    </tbody>
+  </table></div>
+
+  <details class="check">
+    <summary>✍️ Explicalo sin mirar, después abrí</summary>
+    <ol>
+      <li>Dibujá en tu hoja un cromosoma duplicado y marcá 5 partes.<span class="ans">Cromátidas hermanas, centrómero, brazo p, brazo q, telómeros.</span></li>
+      <li>¿Qué significa "semiconservativa"?<span class="ans">Cada molécula nueva de ADN tiene una hebra original y una recién fabricada.</span></li>
+      <li>¿Qué es un codón y cuántas bases tiene?<span class="ans">Un triplete de bases del ARNm que especifica un aminoácido (o inicio/stop).</span></li>
+      <li>¿Qué diferencia hay entre translocación y crossing-over?<span class="ans">El crossing-over es un intercambio normal entre homólogos; la translocación es un intercambio anormal con un cromosoma no homólogo.</span></li>
+    </ol>
+  </details>
+</section>
+
+<!-- ======================================================= 3 VOCABULARIO -->
+<section class="page" id="vocabulario" tabindex="-1" data-title="3 · Vocabulario">
+  <p class="eyebrow">Capítulo 3 · El idioma de la genética</p>
+  <h1>Homólogo, locus, alelo, genotipo…: el idioma que tenés que dominar</h1>
+
+  <p class="lead">Un secreto de profesor: la mitad de los errores en genética no son de cálculo, son de <b>vocabulario</b>. Si confundís "homólogo" con "cromátida", o "genotipo" con "fenotipo", el ejercicio se cae aunque sepas hacer el cuadro. Por eso este capítulo vale oro.</p>
+
+  <div class="box think">
+    <span class="box-title">🤔 Antes de leer</span>
+    Escribí en tu hoja, con tus palabras, qué creés que significa cada uno: <i>alelo, locus, genotipo, fenotipo, heterocigota</i>. Después comparás. Lo que escribiste mal es justo lo que más vas a recordar después de corregirlo.
+  </div>
+
+  <h2>Homólogos y heterólogos</h2>
+  <figure class="fig-card">
+    <svg viewBox="0 0 360 250" role="img" aria-label="Par de cromosomas homólogos, uno materno y uno paterno, con el mismo locus llevando alelos D y d; y un cromosoma heterólogo distinto">
+      <rect class="mat" x="60" y="30" width="26" height="180" rx="13"/>
+      <rect class="pat" x="120" y="30" width="26" height="180" rx="13"/>
+      <ellipse cx="73" cy="85" rx="15" ry="6" fill="var(--text)" opacity=".5"/>
+      <ellipse cx="133" cy="85" rx="15" ry="6" fill="var(--text)" opacity=".5"/>
+      <rect class="band" x="60" y="140" width="26" height="10"/><rect class="band" x="120" y="140" width="26" height="10"/>
+      <text x="44" y="150" text-anchor="middle" class="lbl-b">D</text>
+      <text x="162" y="150" text-anchor="middle" class="lbl-b">d</text>
+      <text x="73" y="230" text-anchor="middle" class="lbl-s">de mamá</text>
+      <text x="133" y="230" text-anchor="middle" class="lbl-s">de papá</text>
+      <path class="line" d="M60 18 H146"/><text x="103" y="12" text-anchor="middle" class="lbl">Par de homólogos</text>
+      <path class="line" d="M150 145 C 175 145, 175 120, 190 120"/>
+      <text x="194" y="116" class="lbl">mismo locus,</text><text x="194" y="131" class="lbl">alelos distintos</text>
+      <rect class="neu" x="280" y="90" width="26" height="110" rx="13"/>
+      <ellipse cx="293" cy="120" rx="15" ry="6" fill="var(--text)" opacity=".5"/>
+      <rect class="band" x="280" y="160" width="26" height="10"/><text x="322" y="170" class="lbl-b">B</text>
+      <text x="293" y="76" text-anchor="middle" class="lbl">Heterólogo</text>
+      <text x="293" y="230" text-anchor="middle" class="lbl-s">otro par, otros genes</text>
+    </svg>
+    <figcaption>Los homólogos llevan los <b>mismos genes</b> en los <b>mismos lugares</b>, pero no necesariamente los <b>mismos alelos</b>.</figcaption>
+  </figure>
+  <ul>
+    <li><b>Cromosomas homólogos:</b> los dos cromosomas de un mismo par. Uno lo heredaste de tu mamá y otro de tu papá. Tienen el <b>mismo tamaño</b>, la <b>misma forma</b> (centrómero en el mismo lugar) y los <b>mismos genes en los mismos loci</b>. Pero <b>no son idénticos</b>: en un mismo locus uno puede llevar el alelo D y el otro el d.</li>
+    <li><b>Cromosomas heterólogos (no homólogos):</b> cromosomas de <b>pares distintos</b>, por ejemplo el 1 y el 4. Distinto tamaño, distinta forma y <b>genes distintos</b>.</li>
+  </ul>
+  <div class="box trap">
+    <span class="box-title">⚠️ No confundas</span>
+    <b>Homólogos</b> = uno de mamá + uno de papá (pueden diferir en alelos). <b>Cromátidas hermanas</b> = dos copias idénticas de un mismo cromosoma, hechas en la fase S. Los X e Y del varón son un caso especial: forman el par sexual, pero solo comparten una pequeña región.
+  </div>
+
+  <h2>Del gen al rasgo: las palabras clave</h2>
+  <p>Usemos un ejemplo humano clásico: la <b>forma del pulgar</b>. El alelo <b>D</b> da pulgar recto (dominante) y el alelo <b>d</b> da pulgar extensible, que se dobla hacia atrás (recesivo).</p>
+
+  <dl>
+    <dt><b>Carácter</b></dt><dd>El rasgo del que hablamos: "forma del pulgar".</dd>
+    <dt><b>Gen</b></dt><dd>El fragmento de ADN que lleva la instrucción para ese carácter.</dd>
+    <dt><b>Locus</b> (plural: <b>loci</b>)</dt><dd>El <b>lugar fijo</b> que ocupa ese gen en el cromosoma: su "dirección". Es el mismo en ambos homólogos.</dd>
+    <dt><b>Alelo</b></dt><dd>Cada una de las <b>variantes</b> de un gen: D y d. Cada persona tiene <b>dos</b> alelos por gen, uno en cada homólogo.</dd>
+    <dt><b>Genotipo</b></dt><dd>La <b>combinación de alelos</b> que tiene un individuo: DD, Dd o dd. Es lo que "está escrito".</dd>
+    <dt><b>Fenotipo</b></dt><dd>La característica <b>observable o medible</b>: pulgar recto o extensible. Incluye rasgos que no se ven a simple vista, como el grupo sanguíneo. <b>Fenotipo = genotipo + ambiente.</b></dd>
+    <dt><b>Dominante</b></dt><dd>El alelo que se manifiesta aunque esté en <b>una sola copia</b>. Se escribe con <b>mayúscula</b>.</dd>
+    <dt><b>Recesivo</b></dt><dd>El alelo que solo se manifiesta si está en <b>dos copias</b> (en homocigosis), porque el dominante lo "tapa". Se escribe con <b>minúscula</b>.</dd>
+    <dt><b>Homocigota</b> (homocigosis)</dt><dd>Dos alelos <b>iguales</b>: DD (homocigota dominante) o dd (homocigota recesivo). En Mendel, una "línea pura".</dd>
+    <dt><b>Heterocigota</b> (heterocigosis)</dt><dd>Dos alelos <b>distintos</b>: Dd. También se le dice "híbrido" o, si el recesivo causa una enfermedad, "portador".</dd>
+  </dl>
+
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Genotipo</th><th>Cómo se llama</th><th>Fenotipo</th><th>Gametos que forma</th></tr></thead>
+    <tbody>
+      <tr><td><code>DD</code></td><td>Homocigota dominante</td><td>Pulgar recto</td><td>1 tipo: D</td></tr>
+      <tr><td><code>Dd</code></td><td>Heterocigota</td><td>Pulgar recto</td><td>2 tipos: D y d</td></tr>
+      <tr><td><code>dd</code></td><td>Homocigota recesivo</td><td>Pulgar extensible</td><td>1 tipo: d</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box trap">
+    <span class="box-title">⚠️ Tres creencias falsas muy comunes</span>
+    <ol>
+      <li><b>"Dominante = más frecuente".</b> No. Dominante habla de expresión, no de frecuencia. El alelo de la enfermedad de Huntington es dominante y rarísimo.</li>
+      <li><b>"Dominante = mejor".</b> No. No tiene nada que ver con ser "bueno" o "fuerte".</li>
+      <li><b>"Si es recesivo, se pierde".</b> No. Queda escondido en los heterocigotas y puede reaparecer en los nietos.</li>
+    </ol>
+  </div>
+
+  <h2>Genotipo, fenotipo y ambiente: la pregunta del clon</h2>
+  <p>Una pregunta típica: <i>si clonáramos a un ser humano, ¿tendríamos dos individuos con idéntico fenotipo?</i> La respuesta es <b>no necesariamente</b>. El clon tendría el <b>mismo genotipo</b>, pero el fenotipo es el resultado de la interacción entre el genotipo y el <b>ambiente</b>: la alimentación, las enfermedades, las experiencias, el aprendizaje, la crianza e incluso qué genes se "prenden" o "apagan" a lo largo de la vida. Los gemelos idénticos son clones naturales y, sin embargo, tienen huellas digitales distintas, personalidades distintas y a veces enfermedades distintas. Esta idea es central para entender a las personas: <b>la genética no es destino</b>.</p>
+
+  <h2>Las 4 reglas de oro para razonar</h2>
+  <div class="box key">
+    <ol>
+      <li><b>Fenotipo recesivo → genotipo seguro.</b> Si alguien muestra el rasgo recesivo, es <code>dd</code>. Sin dudas.</li>
+      <li><b>Fenotipo dominante → <code>D_</code>.</b> Sabés que hay una D, pero el segundo alelo es un misterio hasta que algún dato lo revele.</li>
+      <li><b>Para completar el "_", mirá a la familia.</b> Si un individuo dominante tiene un <b>padre</b> recesivo o un <b>hijo</b> recesivo, es seguro <code>Dd</code>.</li>
+      <li><b>Dos padres iguales con un hijo distinto</b> → el hijo tiene el fenotipo recesivo y los dos padres son heterocigotas.</li>
+    </ol>
+  </div>
+
+  <details class="check">
+    <summary>✍️ Explicalo sin mirar, después abrí</summary>
+    <ol>
+      <li>¿En qué se parecen y en qué se diferencian dos homólogos?<span class="ans">Mismo tamaño, forma y genes en los mismos loci; pueden tener alelos distintos y uno viene de cada progenitor.</span></li>
+      <li>Diferencia entre gen y alelo, con un ejemplo.<span class="ans">Gen = "forma del pulgar"; alelos = D (recto) y d (extensible).</span></li>
+      <li>¿Por qué dos clones podrían tener fenotipos distintos?<span class="ans">Porque el fenotipo depende del genotipo Y del ambiente.</span></li>
+      <li>Alguien tiene pulgar recto y su mamá lo tiene extensible. ¿Cuál es su genotipo?<span class="ans">Dd: tiene una D (es recto) y recibió una d de su mamá (dd).</span></li>
+    </ol>
+  </details>
+</section>
+
+<!-- ======================================================= 4 MENDEL -->
+<section class="page" id="mendel" tabindex="-1" data-title="4 · Mendel">
+  <p class="eyebrow">Capítulo 4 · Apunte 2019 cap. 12 · Curtis 9ª cap. 8 · Audesirk cap. 10</p>
+  <h1>Mendel: un monje, un jardín y la matemática de la herencia</h1>
+
+  <div class="box goal">
+    <span class="box-title">🎯 Al terminar vas a poder…</span>
+    <ul>
+      <li>Contar los experimentos de Mendel y por qué fueron revolucionarios.</li>
+      <li>Enunciar el principio de uniformidad, la 1ª ley y la 2ª ley.</li>
+      <li>Hacer un cuadro de Punnett y usar las reglas de probabilidad.</li>
+    </ul>
+  </div>
+
+  <h2>La historia</h2>
+  <p>A mediados del siglo XIX, en el jardín de un monasterio de Brno (en la actual República Checa), un monje llamado <b>Gregor Mendel</b> se pasó años cruzando plantas de <b>arveja</b> (guisante, <i>Pisum sativum</i>). En esa época se creía en la <b>herencia por mezcla</b>: los rasgos de los padres se mezclaban en los hijos como dos pinturas. Si eso fuera cierto, con el tiempo todos seríamos "grises" y la variación desaparecería.</p>
+  <p>Mendel hizo algo distinto a sus contemporáneos: <b>contó</b>. Eligió bien su material: la arveja es fácil de cultivar, tiene muchas generaciones en poco tiempo, se <b>autofecunda</b> naturalmente pero también se puede cruzar a mano, y tiene caracteres con <b>dos variantes bien claras</b>, sin intermedios. Estudió 7 caracteres:</p>
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Carácter</th><th>Dominante</th><th>Recesivo</th></tr></thead>
+    <tbody>
+      <tr><td>Color de la semilla</td><td>Amarilla</td><td>Verde</td></tr>
+      <tr><td>Forma de la semilla</td><td>Lisa</td><td>Rugosa</td></tr>
+      <tr><td>Color de la flor</td><td>Púrpura (violeta)</td><td>Blanca</td></tr>
+      <tr><td>Forma de la vaina</td><td>Inflada</td><td>Contraída</td></tr>
+      <tr><td>Color de la vaina</td><td>Verde</td><td>Amarilla</td></tr>
+      <tr><td>Posición de la flor</td><td>Axial (a lo largo del tallo)</td><td>Terminal (en la punta)</td></tr>
+      <tr><td>Altura del tallo</td><td>Alto</td><td>Enano</td></tr>
+    </tbody>
+  </table></div>
+  
+  <h2>Paso 1: las líneas puras</h2>
+  <p>Primero Mendel dejó que las plantas se autofecundaran durante varias generaciones, hasta que siempre dieran lo mismo (las amarillas solo daban amarillas, las verdes solo verdes). Esas son las <b>líneas puras</b>: hoy sabemos que son <b>homocigotas</b> (AA o aa).</p>
+  <div class="box think">
+    <span class="box-title">🤔 Pregunta típica: ¿obtener líneas puras es clonar?</span>
+    <p><b>No.</b> La autofecundación es <b>reproducción sexual</b>: la planta forma gametos masculinos (polen) y femeninos (óvulos) por <b>meiosis</b>, y después hay <b>fecundación</b>. Los hijos salen iguales solo porque la planta es homocigota: una planta AA solo puede formar gametos A. La clonación, en cambio, es <b>reproducción asexual</b>: una copia genética sin meiosis ni fecundación (como cuando plantás un gajo).</p>
+  </div>
+
+  <h2>Paso 2: el principio de uniformidad (F1)</h2>
+  <p>Mendel cruzó una línea pura amarilla (AA) con una verde (aa). Esa es la generación parental, <b>P</b>. Resultado: <b>todas</b> las semillas de la primera generación filial (<b>F1</b>) salieron amarillas.</p>
+  <div class="punnett-wrap"><table class="punnett">
+    <tr><th class="corner">gametos</th><th>A</th><th>A</th></tr>
+    <tr><th>a</th><td>Aa<small>amarilla</small></td><td>Aa<small>amarilla</small></td></tr>
+    <tr><th>a</th><td>Aa<small>amarilla</small></td><td>Aa<small>amarilla</small></td></tr>
+  </table></div>
+  <div class="box key"><span class="box-title">🔑 Principio de uniformidad</span>Si se cruzan dos líneas puras (homocigota dominante × homocigota recesivo), todos los descendientes de la F1 son <b>iguales entre sí</b>, genotípica (Aa) y fenotípicamente, e iguales en fenotipo al progenitor dominante. Esto pasa sin importar cuál de los dos progenitores aporta cada alelo. De acá surgen los conceptos de <b>dominante</b> y <b>recesivo</b>.</div>
+  <p>¿Y el verde? ¿Desapareció? Acá viene la genialidad.</p>
+
+  <h2>Paso 3: la F2 y la 1ª ley (segregación)</h2>
+  <p>Mendel dejó que las plantas de la F1 (Aa) se autofecundaran. En la <b>F2</b>, <b>el verde volvió a aparecer</b>: contó 6022 amarillas y 2001 verdes, una proporción de casi exactamente <b>3:1</b>. El verde no se había mezclado ni perdido: estaba <b>escondido</b> en la F1 y volvió intacto.</p>
+  <div class="punnett-wrap"><table class="punnett">
+    <tr><th class="corner">gametos</th><th>A</th><th>a</th></tr>
+    <tr><th>A</th><td>AA<small>amarilla</small></td><td>Aa<small>amarilla</small></td></tr>
+    <tr><th>a</th><td>Aa<small>amarilla</small></td><td>aa<small>verde</small></td></tr>
+  </table></div>
+  <div class="box key"><span class="box-title">🔑 1ª ley de Mendel: principio de segregación</span>Cada individuo lleva un <b>par de alelos</b> para cada carácter. Esos alelos <b>se separan (segregan)</b> sin mezclarse durante la formación de los gametos, así que cada gameto lleva <b>uno solo</b>. <br><i>Dónde ocurre:</i> en la meiosis, anafase I (ver capítulo 1).</div>
+
+  <h2>Paso 4: dos caracteres a la vez y la 2ª ley</h2>
+  <p>Después Mendel siguió dos caracteres juntos: color (A amarilla / a verde) y forma (B lisa / b rugosa). Cruzó dihíbridos <b>AaBb × AaBb</b> y obtuvo 4 fenotipos en proporción <b>9:3:3:1</b>. Eso solo puede pasar si un AaBb forma <b>4 tipos de gametos con la misma probabilidad</b>: AB, Ab, aB y ab. O sea, que heredar "amarilla" no te obliga a heredar "lisa".</p>
+  <div class="box key"><span class="box-title">🔑 2ª ley de Mendel: principio de la distribución independiente</span>Cuando se forman los gametos, los alelos del gen de un carácter se separan <b>independientemente</b> de los alelos del gen de otro carácter. Se cumple para genes ubicados en <b>cromosomas distintos</b> (heterólogos). <br><i>Dónde ocurre:</i> en la meiosis, por la orientación al azar de cada par de homólogos en la metafase I.</div>
+  <p class="small muted">Si dos genes están muy cerca en el <b>mismo</b> cromosoma (genes <i>ligados</i>), tienden a heredarse juntos y no cumplen la 2ª ley. Mendel tuvo la suerte (o el ojo) de elegir caracteres que sí la cumplían.</p>
+
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Fenotipo</th><th>Genotipos</th><th>Proporción</th></tr></thead>
+    <tbody>
+      <tr><td>Amarilla lisa</td><td>A_B_</td><td>9/16</td></tr>
+      <tr><td>Amarilla rugosa</td><td>A_bb</td><td>3/16</td></tr>
+      <tr><td>Verde lisa</td><td>aaB_</td><td>3/16</td></tr>
+      <tr><td>Verde rugosa</td><td>aabb</td><td>1/16</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Las herramientas: probabilidad sin miedo</h2>
+  <p>La genética es probabilidad con biología arriba. Necesitás solo tres ideas:</p>
+  <ul>
+    <li><b>Regla del producto ("Y" → multiplicar).</b> Para que pasen dos cosas independientes a la vez, multiplicás. ¿Probabilidad de aa <b>y</b> bb? 1/4 × 1/4 = 1/16. ¿De que dos hijos seguidos sean aa? 1/4 × 1/4.</li>
+    <li><b>Regla de la suma ("O" → sumar).</b> Si te sirve una cosa <b>o</b> la otra (y no pueden pasar juntas), sumás. ¿Probabilidad de ser AA <b>o</b> Aa? 1/4 + 2/4 = 3/4.</li>
+    <li><b>El azar no tiene memoria.</b> Cada embarazo es una tirada nueva. Si ya tuvieron tres hijos aa, el cuarto sigue teniendo 1/4.</li>
+  </ul>
+  <div class="box think">
+    <span class="box-title">🧠 Truco para dihíbridos</span>
+    No hagas el cuadro de 16 casillas si no te lo piden. Resolvé <b>cada gen por separado</b> con un cuadrito de 4 y después <b>multiplicá</b>. Es más rápido y tenés menos chances de equivocarte.
+  </div>
+
+  <h2>La cruza de prueba</h2>
+  <p>Problema: ves una planta amarilla. ¿Es AA o Aa? A simple vista no lo sabés. Solución: la cruzás con una <b>homocigota recesiva</b> (aa), que es la única cuyo genotipo conocés con certeza por su fenotipo.</p>
+  <ul>
+    <li>Si aparece <b>algún</b> hijo verde (aa) → la planta tenía una a escondida: era <b>Aa</b>. Ese cruce da 1:1.</li>
+    <li>Si todos los hijos (muchos) salen amarillos → muy probablemente era <b>AA</b>.</li>
+  </ul>
+
+  <details class="check">
+    <summary>✍️ Explicalo sin mirar, después abrí</summary>
+    <ol>
+      <li>¿Por qué el experimento de la F2 refutó la herencia por mezcla?<span class="ans">Porque el rasgo verde reapareció intacto: no se había mezclado, estaba escondido.</span></li>
+      <li>Enunciá la 1ª y la 2ª ley con tus palabras.<span class="ans">1ª: los dos alelos de un gen se separan en los gametos. 2ª: los alelos de genes distintos se reparten independientemente.</span></li>
+      <li>¿Qué es una línea pura y por qué no es un clon?<span class="ans">Un homocigota que siempre da lo mismo; se obtiene por reproducción sexual (autofecundación).</span></li>
+      <li>¿Cuánto da aa y bb en AaBb × AaBb?<span class="ans">1/4 × 1/4 = 1/16.</span></li>
+    </ol>
+  </details>
+</section>
+
+<!-- ======================================================= 5 EXTENSIÓN -->
+<section class="page" id="extension" tabindex="-1" data-title="5 · Más allá de Mendel">
+  <p class="eyebrow">Capítulo 5 · Apunte 2019 cap. 13 · Audesirk cap. 10</p>
+  <h1>Extensión de la genética mendeliana: cuando la realidad es más compleja</h1>
+
+  <p class="lead">Mendel tenía razón, pero no en todo. En sus 7 caracteres, un alelo dominaba por completo sobre el otro. En la vida real hay otras formas en que los alelos se relacionan. A veces esto se agrupa como <b>"herencia no mendeliana"</b>: codominancia y dominancia incompleta, alelismo múltiple y herencia ligada al cromosoma sexual.</p>
+
+  <div class="box key">
+    <span class="box-title">🔑 La idea que ordena este capítulo</span>
+    La <b>segregación sigue funcionando igual</b>: cada gameto lleva un alelo y el cuadro de Punnett se arma igual. Lo que cambia es <b>cómo se traduce el genotipo en fenotipo</b>. O sea, cambia solo el último paso: el de "leer" las casillas.
+  </div>
+
+  <h2>Dominancia incompleta: la mezcla</h2>
+  <p>El heterocigota tiene un fenotipo <b>intermedio</b> entre los dos homocigotas. Ejemplo clásico: en la planta "dondiego de noche", rojo (RR) × blanco (BB) da <b>rosado</b> (RB). Como ninguno domina, se usan dos letras mayúsculas distintas.</p>
+  <div class="punnett-wrap"><table class="punnett">
+    <tr><th class="corner">RB × RB</th><th>R</th><th>B</th></tr>
+    <tr><th>R</th><td>RR<small>rojo</small></td><td>RB<small>rosado</small></td></tr>
+    <tr><th>B</th><td>RB<small>rosado</small></td><td>BB<small>blanco</small></td></tr>
+  </table></div>
+  <p>Fíjate: hay <b>tres fenotipos</b> en proporción <b>1:2:1</b>, igual que los genotipos. Si en un ejercicio ves 1:2:1 en <em>fenotipos</em>, es la señal de dominancia incompleta.</p>
+
+  <h2>Codominancia: los dos a la vez</h2>
+  <p>El heterocigota expresa <b>ambos</b> alelos completos, sin mezclarlos. El ejemplo clásico es el <b>grupo sanguíneo AB</b>: sus glóbulos rojos tienen en la superficie el antígeno A <b>y</b> el antígeno B, los dos enteros.</p>
+  <div class="box trap">
+    <span class="box-title">⚠️ Dominancia incompleta vs codominancia</span>
+    Intermedio (rosado, gris, naranja) = <b>dominancia incompleta</b>. Ambos completos (antígenos A y B; manchas blancas y negras) = <b>codominancia</b>. Algunos ejercicios de la práctica (las mariposas grises, las flores naranjas) lo llaman "codominancia". No te asustes: <b>las cuentas son idénticas</b>. En una pregunta teórica, usá la distinción correcta.
+  </div>
+
+  <h2>Alelos múltiples: el sistema ABO</h2>
+  <p>Hasta ahora cada gen tenía dos alelos. Pero en la <b>población</b> puede haber más. El gen del grupo sanguíneo tiene <b>tres</b>:</p>
+  <ul>
+    <li><b>I<sup>A</sup></b> (también escrito "A"): fabrica el antígeno A en los glóbulos rojos.</li>
+    <li><b>I<sup>B</sup></b> ("B"): fabrica el antígeno B.</li>
+    <li><b>i</b> ("0"): no fabrica ningún antígeno.</li>
+  </ul>
+  <p>Ojo: aunque en la población haya 3 alelos, <b>cada persona tiene solo 2</b>, uno en cada homólogo. Las relaciones entre ellos son: <b>I<sup>A</sup> e I<sup>B</sup> son codominantes</b> entre sí, y <b>los dos dominan sobre i</b>.</p>
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Fenotipo (grupo)</th><th>Genotipos posibles</th><th>Notación simplificada</th><th>Antígenos</th></tr></thead>
+    <tbody>
+      <tr><td><b>A</b></td><td>I<sup>A</sup>I<sup>A</sup> (homocigota) o I<sup>A</sup>i (heterocigota)</td><td>AA o A0</td><td>A</td></tr>
+      <tr><td><b>B</b></td><td>I<sup>B</sup>I<sup>B</sup> o I<sup>B</sup>i</td><td>BB o B0</td><td>B</td></tr>
+      <tr><td><b>AB</b></td><td>I<sup>A</sup>I<sup>B</sup> (único)</td><td>AB</td><td>A y B</td></tr>
+      <tr><td><b>0</b></td><td>ii (único)</td><td>00</td><td>Ninguno</td></tr>
+    </tbody>
+  </table></div>
+  <p>6 genotipos posibles y 4 fenotipos. Los grupos <b>AB y 0 tienen genotipo seguro</b>; A y B te dejan la duda del "_", que se resuelve mirando a la familia, igual que antes.</p>
+
+  <div class="box key">
+    <span class="box-title">🔑 ABO en juicios de paternidad</span>
+    <ul>
+      <li>Los grupos sanguíneos pueden <b>excluir</b> a un posible padre, pero <b>nunca confirmar</b> que lo es.</li>
+      <li>Una persona de grupo <b>0</b> (ii) no puede tener un hijo <b>AB</b>, porque no tiene ni I<sup>A</sup> ni I<sup>B</sup> para darle.</li>
+      <li>Una persona de grupo <b>AB</b> no puede tener un hijo <b>0</b>, porque no tiene ninguna i para darle.</li>
+    </ul>
+  </div>
+  <p class="small muted">El factor Rh (+ o −) es otro gen, independiente del ABO; Rh+ es dominante. No lo mezcles con el ABO en un mismo cuadro, salvo que te lo pidan como dihíbrido.</p>
+
+  <h2>Herencia ligada al sexo (ligada al X)</h2>
+  <p>Hay genes que están en el <b>cromosoma X</b> y no tienen su par en el Y. Eso cambia todo:</p>
+  <ul>
+    <li>Las mujeres (XX) tienen <b>dos</b> alelos de esos genes.</li>
+    <li>Los varones (XY) tienen <b>uno solo</b>: no hay un segundo X que "tape" un alelo recesivo.</li>
+  </ul>
+  <p>Por eso las enfermedades <b>recesivas ligadas al X</b> (daltonismo, hemofilia) son mucho más frecuentes en varones. Se escribe el alelo como superíndice de la X: X<sup>D</sup> (normal), X<sup>d</sup> (daltonismo).</p>
+  <div class="punnett-wrap"><table class="punnett">
+    <tr><th class="corner">madre portadora<br>× padre sano</th><th>X<sup>D</sup></th><th>X<sup>d</sup></th></tr>
+    <tr><th>X<sup>D</sup></th><td>X<sup>D</sup>X<sup>D</sup><small>hija sana</small></td><td>X<sup>D</sup>X<sup>d</sup><small>hija portadora</small></td></tr>
+    <tr><th>Y</th><td>X<sup>D</sup>Y<small>hijo sano</small></td><td>X<sup>d</sup>Y<small>hijo daltónico</small></td></tr>
+  </table></div>
+  <div class="box key">
+    <span class="box-title">🔑 Tres reglas que salen solas del cuadro</span>
+    <ol>
+      <li>Un padre le da su <b>X a todas sus hijas</b> y su <b>Y a todos sus hijos varones</b>.</li>
+      <li>Por eso un padre <b>nunca</b> le pasa un rasgo ligado al X a un hijo varón.</li>
+      <li>Los varones heredan su X (y por lo tanto el rasgo) <b>de la madre</b>.</li>
+    </ol>
+  </div>
+
+  <h2>Influida por el sexo (no confundir con ligada)</h2>
+  <p>En la herencia <b>influida por el sexo</b>, el gen está en un <b>autosoma</b> (todos tienen dos copias), pero cuál alelo domina <b>depende del sexo</b>, por efecto de las hormonas. El ejemplo es la <b>calvicie</b>: el alelo C domina en los varones (CC y CN son calvos) y es recesivo en las mujeres (solo CC es calva).</p>
+
+  <h2>Otros conceptos que pueden aparecer como teoría</h2>
+  <ul>
+    <li><b>Alelos letales:</b> causan la muerte del embrión. Cambian las proporciones (por ejemplo, 2:1 en lugar de 3:1), porque cuentan solo los que nacen.</li>
+    <li><b>Pleiotropía:</b> <i>un</i> gen afecta <i>varios</i> rasgos. Ej.: la fenilcetonuria afecta al desarrollo cerebral y a la pigmentación.</li>
+    <li><b>Epistasis:</b> un gen tapa o modifica el efecto de <i>otro</i> gen distinto (no de su alelo). Ej.: el albinismo impide ver el color de ojos que "dictarían" otros genes.</li>
+    <li><b>Herencia poligénica:</b> <i>muchos</i> genes suman efectos sobre <i>un</i> rasgo, lo que da variación <b>continua</b>: altura, color de piel y también muchos rasgos psicológicos.</li>
+    <li><b>Ambiente:</b> el mismo genotipo puede dar fenotipos distintos según el ambiente. Por ejemplo, en trastornos como el estrés postraumático los genes aportan vulnerabilidad, pero no determinan solos.</li>
+  </ul>
+
+  <details class="check">
+    <summary>✍️ Explicalo sin mirar, después abrí</summary>
+    <ol>
+      <li>¿Qué diferencia hay entre dominancia incompleta y codominancia? Da un ejemplo de cada una.<span class="ans">Intermedio (rojo × blanco = rosado) vs ambos completos (grupo AB).</span></li>
+      <li>¿Cuántos alelos tiene el gen ABO en la población? ¿Y cada persona?<span class="ans">3 en la población (I<sup>A</sup>, I<sup>B</sup>, i); cada persona tiene 2.</span></li>
+      <li>¿Por qué el daltonismo es más común en varones?<span class="ans">Tienen un solo X: con un alelo recesivo ya lo manifiestan.</span></li>
+      <li>¿Por qué la calvicie no es "ligada al sexo"?<span class="ans">Porque el gen es autosómico; lo que depende del sexo es la dominancia.</span></li>
+    </ol>
+  </details>
+</section>
+
+<!-- ======================================================= 6 MÉTODO -->
+<section class="page" id="metodo" tabindex="-1" data-title="6 · El método">
+  <p class="eyebrow">Capítulo 6 · Cómo piensa alguien que resuelve bien</p>
+  <h1>La receta: 7 pasos para cualquier ejercicio de genética</h1>
+  <p class="lead">Los ejercicios cambian de disfraz (moscas, arvejas, grupos sanguíneos, calvicie), pero por dentro son siempre el mismo problema. Si seguís estos pasos, <b>nunca te quedás en blanco</b>: siempre sabés cuál es el siguiente movimiento.</p>
+
+  <ol class="plan">
+    <li><b>Leé y subrayá</b><span class="time">¿Qué me están preguntando exactamente?</span>¿Piden genotipo, fenotipo o probabilidad? ¿De quién: de todos los hijos, solo de los varones, de un hijo en particular? Muchos errores vienen de responder otra pregunta.</li>
+    <li><b>Armá la leyenda</b><span class="time">¿Qué letra es qué?</span>Mayúscula = dominante, minúscula = recesivo, misma letra para el mismo gen. Si no te dicen quién domina, <b>deducilo</b>: si dos padres iguales tienen un hijo distinto, el rasgo del hijo es el recesivo.</li>
+    <li><b>Traducí fenotipos a genotipos</b><span class="time">¿Qué sé seguro y qué es duda?</span>Recesivo → seguro (aa). Dominante → A_. Buscá pistas en los padres o en los hijos para completar el "_". Si no hay pistas, analizá los dos casos.</li>
+    <li><b>Escribí los gametos</b><span class="time">1ª ley</span>Cada gameto lleva <b>un</b> alelo de cada gen. Homocigota: 1 tipo; heterocigota: 2 tipos; dihíbrido: 4 tipos.</li>
+    <li><b>Armá el cuadro de Punnett</b><span class="time">Combiná fila × columna</span>Gametos de un progenitor arriba, del otro a la izquierda. Cada casilla vale 1/4.</li>
+    <li><b>Contá: genotipos primero, fenotipos después</b><span class="time">Fracción y porcentaje</span>Escribí las dos proporciones por separado. Expresalas en fracción (1/4) y en porcentaje (25%).</li>
+    <li><b>Controlá</b><span class="time">El paso que casi nadie hace</span>¿Suma 100%? ¿Mi cruce puede producir los hijos que menciona el enunciado? ¿Contesté exactamente lo que me preguntaron?</li>
+  </ol>
+
+  <h2>El detector de proporciones</h2>
+  <p>Muchos ejercicios te dan la descendencia y te piden los padres. Memorizá estas "firmas":</p>
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Si los hijos salen…</th><th>Los padres probablemente son…</th></tr></thead>
+    <tbody>
+      <tr><td>100% dominante</td><td>AA × (cualquiera)</td></tr>
+      <tr><td><b>3 : 1</b></td><td>Aa × Aa</td></tr>
+      <tr><td><b>1 : 1</b></td><td>Aa × aa (cruza de prueba)</td></tr>
+      <tr><td>100% recesivo</td><td>aa × aa</td></tr>
+      <tr><td><b>1 : 2 : 1</b> en fenotipos</td><td>Dominancia incompleta, heterocigota × heterocigota</td></tr>
+      <tr><td><b>9 : 3 : 3 : 1</b></td><td>AaBb × AaBb (dihíbridos)</td></tr>
+      <tr><td><b>2 : 1</b></td><td>Hay un alelo letal</td></tr>
+      <tr><td>A, B, AB y 0, 1/4 cada uno</td><td>I<sup>A</sup>i × I<sup>B</sup>i</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box think">
+    <span class="box-title">🧠 Cuando te dan números "feos" (78 y 23, 216 y 72)</span>
+    Dividí el mayor por el menor. 216 ÷ 72 = 3 → 3:1. 78 ÷ 23 ≈ 3,4 → ~3:1. 116 y 115 → ~1:1. Los números reales nunca dan exactos porque la fecundación es azar.
+  </div>
+
+  <h2>Los 8 errores más frecuentes (y cómo detectarlos)</h2>
+  <div class="table-wrap"><table class="t">
+    <thead><tr><th>Error</th><th>Cómo te das cuenta</th></tr></thead>
+    <tbody>
+      <tr><td>Confundir proporción genotípica con fenotípica</td><td>¿Te preguntaron por "genotipo" (letras) o por "fenotipo" (cómo se ve)?</td></tr>
+      <tr><td>Poner dos alelos del mismo gen en un gameto ("Aa")</td><td>Cada gameto: <b>una</b> letra por gen.</td></tr>
+      <tr><td>Asumir AA cuando el fenotipo es dominante</td><td>¿Tengo algún dato que confirme el segundo alelo? Si no, A_.</td></tr>
+      <tr><td>Usar letras distintas para un mismo gen (A y b)</td><td>Los alelos de un gen comparten letra.</td></tr>
+      <tr><td>Creer que si ya nacieron hijos aa, el próximo "no puede" serlo</td><td>Cada embarazo es independiente.</td></tr>
+      <tr><td>Responder "sobre todos los hijos" cuando preguntaban "sobre los varones"</td><td>Releé la pregunta: ¿cuál es el total?</td></tr>
+      <tr><td>Decir "es el padre" con datos de ABO</td><td>ABO solo excluye.</td></tr>
+      <tr><td>Confundir ligada al sexo con influida por el sexo</td><td>¿El gen está en el X o en un autosoma?</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Estrategia cuando tenés poco tiempo</h2>
+  <ul>
+    <li><b>Primera pasada:</b> respondé las preguntas teóricas que sabés seguro. Te dan tiempo y confianza.</li>
+    <li><b>Ejercicios:</b> leyenda → genotipos → cuadro en papel. No hagas cuentas mentales: escribí.</li>
+    <li><b>Control final:</b> revisá que respondiste lo que te preguntaban, sobre todo si dice "genotípica" o "fenotípica".</li>
+    <li>Si te trabás mucho en una pregunta, <b>marcala y seguí</b>. Volvé al final.</li>
+  </ul>
+</section>
+
+<!-- ======================================================= 7 RESUELTOS -->
+<section class="page" id="resueltos" tabindex="-1" data-title="7 · Resueltos">
+  <p class="eyebrow">Capítulo 7 · Pensar en voz alta</p>
+  <h1>Problemas resueltos, paso a paso</h1>
+  <p class="lead">Acá vas a ver cómo piensa alguien que ya sabe resolverlos. Cada paso tiene tres partes: <span style="color:var(--think);font-weight:700">🧠 lo que pienso</span>, <span style="color:var(--key);font-weight:700">💡 por qué lo hago</span> y <span style="color:var(--accent-strong);font-weight:700">🔍 cómo me controlo</span>.</p>
+  <div class="box think">
+    <span class="box-title">🧭 Cómo usar esta sección (importante)</span>
+    No abras todos los pasos de una. Leé el enunciado, <b>intentá el siguiente paso en tu hoja</b> y recién después tocá "Mostrar paso". Si tu paso coincide, genial. Si no, frená y preguntate: <i>¿qué vio esta persona que yo no vi?</i> Esa pregunta es la que te hace aprender.
+  </div>
+  <div class="prob-index" id="probIndex"></div>
+  <div id="probList"></div>
+</section>
+
+<!-- ======================================================= 8 PRÁCTICA -->
+<section class="page" id="practica" tabindex="-1" data-title="8 · Práctica">
+  <p class="eyebrow">Capítulo 8 · Práctica con radar de errores</p>
+  <h1>Practicá y medí tu confianza</h1>
+  <p class="lead">Antes de corregir, vas a marcar <b>qué tan seguro o segura te sentís</b>. Esto entrena algo clave: saber cuándo sabés y cuándo no.</p>
+  <div class="box think">
+    <span class="box-title">🧠 Por qué marcar la confianza</span>
+    <p>El error más peligroso no es "no sé": es <b>"estoy convencido y estoy equivocado"</b>. Esas ideas mal aprendidas te hacen perder puntos sin que te des cuenta. Cuando la web te muestre una alarma 🚨, anotá ese concepto en tu hoja de repaso.</p>
+  </div>
+  <div class="tabs" id="quizTabs" role="group" aria-label="Filtrar preguntas"></div>
+  <div id="quizStats"></div>
+  <div class="card" id="quizCard"></div>
+</section>
+
+<!-- ======================================================= 9 PUNNETT -->
+<section class="page" id="punnett" tabindex="-1" data-title="9 · Punnett">
+  <p class="eyebrow">Capítulo 9 · Entrenador</p>
+  <h1>Entrenador de cuadros de Punnett</h1>
+  <p class="lead">Te tiro un cruce al azar, vos completás los gametos y las casillas, y la web te corrige casilla por casilla. Hacé varios hasta que te salgan sin pensar.</p>
+  <div class="box goal small">
+    <b>Cómo escribir:</b> respetá mayúsculas y minúsculas (<code>Aa</code> ≠ <code>AA</code>). El orden no importa (<code>aA</code> = <code>Aa</code>). En grupos sanguíneos usá la notación simplificada: <code>A</code>, <code>B</code>, <code>0</code> (cero). Ej.: <code>A0</code>, <code>AB</code>, <code>00</code>.
+  </div>
+  <div class="tabs" id="punTabs" role="group" aria-label="Tipo de cruce"></div>
+  <div class="card" id="punCard"></div>
+</section>
+
+<!-- ======================================================= 10 SIMULACRO -->
+<section class="page" id="simulacro" tabindex="-1" data-title="10 · Simulacro">
+  <p class="eyebrow">Capítulo 10 · Ensayo general</p>
+  <h1>Simulacro cronometrado</h1>
+  <div id="simRoot"></div>
+</section>
+
+<!-- ======================================================= 11 REPASO -->
+<section class="page" id="repaso" tabindex="-1" data-title="11 · Repaso final">
+  <p class="eyebrow">Capítulo 11 · Para cerrar</p>
+  <h1>Repaso final: todo en una pantalla</h1>
+
+  <h2>¿Cómo cambió tu semáforo?</h2>
+  <p>Volvé a marcar cada tema. Debajo de cada uno vas a ver lo que marcaste al empezar. Lo que siga en 🔴 o 🟡, repasalo en otra sesión corta con la sección correspondiente (15 minutos, no más).</p>
+  <div class="card" id="semDespues"></div>
+
+  <h2>Chuleta mental</h2>
+  <div class="table-wrap"><table class="t">
+    <tbody>
+      <tr><td><b>Fase S</b></td><td>Se replica el ADN (interfase, no en la mitosis).</td></tr>
+      <tr><td><b>Mitosis</b></td><td>Somáticas · 1 división · 2 células · 2n · idénticas · crecimiento y reparación.</td></tr>
+      <tr><td><b>Meiosis</b></td><td>Germinales · 2 divisiones · 4 células · n · distintas · gametos y variabilidad.</td></tr>
+      <tr><td><b>1ª ley</b></td><td>Los alelos de un gen se separan en los gametos → anafase I.</td></tr>
+      <tr><td><b>2ª ley</b></td><td>Genes en cromosomas distintos se reparten independientemente → metafase I.</td></tr>
+      <tr><td><b>Uniformidad</b></td><td>AA × aa → F1 100% Aa, fenotipo dominante.</td></tr>
+      <tr><td><b>Homólogos</b></td><td>Mismo par, uno de cada progenitor, mismos genes y loci, pueden diferir en alelos.</td></tr>
+      <tr><td><b>Heterólogos</b></td><td>De pares distintos, genes distintos.</td></tr>
+      <tr><td><b>Locus / alelo</b></td><td>Dirección del gen / variante del gen.</td></tr>
+      <tr><td><b>Genotipo / fenotipo</b></td><td>Letras / lo observable (genotipo + ambiente).</td></tr>
+      <tr><td><b>Homo / hetero</b></td><td>Alelos iguales / alelos distintos.</td></tr>
+      <tr><td><b>Cruza de prueba</b></td><td>Con aa: si aparece algún recesivo, era Aa.</td></tr>
+      <tr><td><b>Dom. incompleta</b></td><td>Heterocigota intermedio · 1:2:1 fenotípico.</td></tr>
+      <tr><td><b>Codominancia</b></td><td>Heterocigota expresa ambos completos (AB).</td></tr>
+      <tr><td><b>ABO</b></td><td>I<sup>A</sup> = I<sup>B</sup> > i · A: AA/A0 · B: BB/B0 · AB: AB · 0: 00 · excluye, no confirma.</td></tr>
+      <tr><td><b>Ligada al X</b></td><td>Varones con un solo X · padre → X a hijas, Y a hijos.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Las firmas</h2>
+  <p><b>3:1</b> → Aa × Aa · <b>1:1</b> → Aa × aa · <b>1:2:1</b> → intermedia · <b>9:3:3:1</b> → dihíbridos · <b>2:1</b> → letal.</p>
+
+  <h2>La secuencia que no falla</h2>
+  <div class="box key">
+    <b>leyenda → genotipos → gametos → cuadro → contar → controlar</b>
+  </div>
+
+  <div class="box think">
+    <span class="box-title">🪞 La última pregunta metacognitiva</span>
+    Pensá en el error que más se te repitió. ¿Fue por no saber el concepto, por leer rápido o por no controlar? Ponele nombre. La próxima vez que estés frente a una pregunta parecida, ese nombre te va a saltar como alarma. 🌙
+  </div>
+</section>
+
+</main>
+
+<footer>Hecho con cariño para estudiar genética · los datos de tu progreso se guardan solo en este navegador.</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
