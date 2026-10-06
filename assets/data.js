@@ -414,6 +414,9 @@ window.QUESTIONS = [
     exp: 'dd × Dd → 1/2 Dd (oscuros) y 1/2 dd (claros). Si la persona de ojos oscuros fuera DD, todos saldrían oscuros.' }
 ];
 
-/* Preguntas del simulacro */
-window.SIM_THEORY = ['t1', 't3', 't4', 't5', 't9', 't17', 't18', 't19', 't21', 't22', 't23', 't26', 't27', 't28', 't29', 't30', 't32', 't33', 't34', 't36', 't13', 't14', 't25', 't2'];
-window.SIM_EXERCISE = ['e1', 'e3', 'e4', 'e5', 'e7', 'e8', 'e9', 'e10', 'e11', 'e12', 'e13', 'e14', 'e15', 'e16', 'e17', 'e18', 'e19', 'e22', 'e24', 'e26', 'e27', 'e30', 'e32'];
+/* Dificultad de cada pregunta (el simulacro toma 2 de cada nivel) */
+window.LEVELS = {
+  facil: ['t1', 't2', 't3', 't6', 't7', 't8', 't9', 't11', 't13', 't14', 't15', 't19', 't20', 't21', 't23', 't24', 't25', 't28', 'e3', 'e9', 'e19', 'e20'],
+  medio: ['t4', 't5', 't10', 't12', 't16', 't17', 't18', 't22', 't26', 't27', 't29', 't30', 't31', 't32', 't33', 't34', 't36', 't37', 'e1', 'e2', 'e4', 'e5', 'e7', 'e10', 'e12', 'e13', 'e14', 'e15', 'e16', 'e17', 'e18', 'e24', 'e30', 'e32'],
+  dificil: ['t35', 'e6', 'e8', 'e11', 'e21', 'e22', 'e23', 'e25', 'e26', 'e27', 'e28', 'e29', 'e31']
+};

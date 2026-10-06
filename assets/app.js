@@ -193,8 +193,13 @@
 
   /* ---------------- Práctica ---------------- */
   const QMAP = Object.fromEntries(QUESTIONS.map(q => [q.id, q]));
+  const LV_NAME = { facil: 'Fácil', medio: 'Medio', dificil: 'Difícil' };
+  const LV_BADGE = { facil: 'Básico', medio: 'Intermedio', dificil: 'Desafío' };
+  const levelOf = {};
+  Object.entries(LEVELS).forEach(([lv, ids]) => ids.forEach(id => { levelOf[id] = lv; }));
+  const lvBadge = (id) => `<span class="badge lv-${LV_BADGE[levelOf[id]]}">${LV_NAME[levelOf[id]]}</span>`;
   const quiz = { filter: 'todo', list: [], i: 0, ok: 0, done: 0, cal: { 'sure-ok': 0, 'sure-bad': 0, 'unsure-ok': 0, 'unsure-bad': 0, 'guess-ok': 0, 'guess-bad': 0 } };
-  const FILTERS = [['todo', 'Todo'], ['teoria', 'Teoría'], ['ejercicio', 'Ejercicios'], ['errores', 'Mis errores']];
+  const FILTERS = [['todo', 'Todo'], ['teoria', 'Teoría'], ['ejercicio', 'Ejercicios'], ['facil', 'Fácil'], ['medio', 'Medio'], ['dificil', 'Difícil'], ['errores', 'Mis errores']];
 
   function wrongSet() { return new Set(store.get('wrong', [])); }
 
@@ -211,6 +216,7 @@
   function startQuiz() {
     let pool = QUESTIONS;
     if (quiz.filter === 'teoria' || quiz.filter === 'ejercicio') pool = QUESTIONS.filter(q => q.tipo === quiz.filter);
+    if (LEVELS[quiz.filter]) pool = QUESTIONS.filter(q => levelOf[q.id] === quiz.filter);
     if (quiz.filter === 'errores') { const w = wrongSet(); pool = QUESTIONS.filter(q => w.has(q.id)); }
     quiz.list = shuffle(pool).map(prepQ);
     quiz.i = 0; quiz.ok = 0; quiz.done = 0;
@@ -250,7 +256,7 @@
     }
     const q = quiz.list[quiz.i];
     let pick = null, conf = null;
-    card.innerHTML = `<div class="q-meta"><span>Pregunta ${quiz.i + 1} de ${quiz.list.length}</span><span>${q.tipo === 'teoria' ? 'Teoría' : 'Ejercicio'} · ${q.tema}</span></div>
+    card.innerHTML = `<div class="q-meta"><span>Pregunta ${quiz.i + 1} de ${quiz.list.length}</span><span>${lvBadge(q.id)}${q.tipo === 'teoria' ? 'Teoría' : 'Ejercicio'} · ${q.tema}</span></div>
       <div class="q-text">${q.q}</div>
       <div class="opts"></div>
       <div class="conf"><span class="conf-label">¿Qué tan seguro/a estás? (elegilo antes de corregir)</span><div class="seg" role="group"></div></div>
@@ -461,7 +467,7 @@
     clearInterval(simTimer);
     const hist = store.get('simHist', []);
     $('#simRoot').innerHTML = `
-      <p class="lead">Es el ensayo general: <b>6 preguntas</b> (2 teóricas y 4 ejercicios), <b>15 minutos</b>, sin corrección hasta el final.</p>
+      <p class="lead">Es el ensayo general: <b>6 preguntas en 3 niveles</b>: 2 fáciles, 2 medias y 2 difíciles, en ese orden. Tenés <b>15 minutos</b>, sin corrección hasta el final.</p>
       <div class="box key"><span class="box-title">Antes de empezar</span>
         <ul><li>Tené una <b>hoja y lapicera</b> al lado.</li>
         <li>Marcá tu <b>confianza</b> en cada respuesta: al final vas a ver qué tan bien calibrada está tu confianza.</li>
@@ -473,7 +479,14 @@
   }
 
   function simStart() {
-    const ids = [...shuffle(SIM_THEORY).slice(0, 2), ...shuffle(SIM_EXERCISE).slice(0, 4)];
+    // 2 preguntas por nivel; si se puede, una teórica y un ejercicio
+    const ids = [];
+    ['facil', 'medio', 'dificil'].forEach(lv => {
+      const pool = shuffle(LEVELS[lv]);
+      const t = pool.find(id => QMAP[id].tipo === 'teoria'), e = pool.find(id => QMAP[id].tipo === 'ejercicio');
+      const pair = t && e ? shuffle([t, e]) : pool.slice(0, 2);
+      ids.push(...pair);
+    });
     const st = { qs: ids.map(id => prepQ(QMAP[id])), ans: Array(6).fill(null), conf: Array(6).fill(null), i: 0, left: SIM_SECONDS };
     const r = $('#simRoot');
     r.innerHTML = `<div class="timer" id="simTimer"><span>⏱ <span class="clock" id="simClock">15:00</span></span><div class="dots" id="simDots"></div></div>
@@ -498,7 +511,7 @@
       dots.appendChild(b);
     });
     const q = st.qs[st.i], card = $('#simCard');
-    card.innerHTML = `<div class="q-meta"><span>Pregunta ${st.i + 1} de 6</span><span>${q.tipo === 'teoria' ? 'Teoría' : 'Ejercicio'}</span></div>
+    card.innerHTML = `<div class="q-meta"><span>Pregunta ${st.i + 1} de 6</span><span>${lvBadge(q.id)}${q.tipo === 'teoria' ? 'Teoría' : 'Ejercicio'}</span></div>
       <div class="q-text">${q.q}</div><div class="opts"></div>
       <div class="conf"><span class="conf-label">Confianza</span><div class="seg" role="group"></div></div>
       <div class="btn-row"></div>`;
@@ -537,10 +550,12 @@
       if (!ok && st.conf[i] === 'sure') alarms++;
       if (!ok) { const w = wrongSet(); w.add(q.id); store.set('wrong', [...w]); }
       const yours = st.ans[i] === null ? '<i>sin responder</i>' : q.shuffled[st.ans[i]];
-      return `<div class="review-item"><b>${i + 1}. ${ok ? '✔' : '✘'}</b> ${q.q}
+      return `<div class="review-item"><b>${i + 1}. ${ok ? '✔' : '✘'}</b> ${lvBadge(q.id)} ${q.q}
         <p class="small"><b>Tu respuesta:</b> ${yours}${st.conf[i] ? ` <span class="muted">(${CONF.find(c => c[0] === st.conf[i])[1].toLowerCase()})</span>` : ''}<br><b>Correcta:</b> ${q.shuffled[q.correct]}</p>
         <div class="feedback ${ok ? 'ok' : 'bad'} small">${q.exp}${st.conf[i] && st.ans[i] !== null ? `<div class="meta">${metaMsg(ok, st.conf[i])}</div>` : ''}</div></div>`;
     }).join('');
+    const byLv = { facil: 0, medio: 0, dificil: 0 };
+    st.qs.forEach((q, i) => { if (st.ans[i] === q.correct) byLv[levelOf[q.id]]++; });
     const hist = store.get('simHist', []);
     const d = new Date();
     hist.push({ date: d.toLocaleDateString('es-AR') + ' ' + d.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }), score, alarms });
@@ -552,6 +567,7 @@
     $('#simRoot').innerHTML = `<div class="card">
       <h2 style="margin-top:0">${timeout ? '⏰ ¡Tiempo! ' : ''}Resultado: ${score}/6</h2>
       <p>${msg}</p>
+      <div class="stats">${['facil', 'medio', 'dificil'].map(lv => `<div class="stat"><div class="v">${byLv[lv]}/2</div><div class="k">${LV_NAME[lv]}</div></div>`).join('')}</div>
       <p class="small muted">Tiempo usado: ${Math.floor(used / 60)} min ${used % 60} s.${alarms ? ` · 🚨 ${alarms} error(es) con seguridad: son tu prioridad.` : ''}</p>
       <div class="btn-row"><button class="btn" type="button" id="simAgain">Otro simulacro</button><a class="btn ghost" href="#practica">Ir a practicar</a></div>
       ${items}</div>`;
